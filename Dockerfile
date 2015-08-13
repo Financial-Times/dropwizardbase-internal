@@ -7,6 +7,5 @@ RUN echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/re
   && rm /usr/lib/jvm/java-1.7-openjdk/jre/lib/security/cacerts \
   && find /etc/ssl/certs -name "*.pem" | xargs -I {} keytool -import -alias {} -keystore /usr/lib/jvm/java-1.7-openjdk/jre/lib/security/cacerts -file {} -noprompt -storepass changeit \
   && mvn verify \
-  && apk del maven@testing \
   && rm -rf /var/cache/apk/*
 
