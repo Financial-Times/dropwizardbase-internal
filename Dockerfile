@@ -7,5 +7,6 @@ RUN apk --update add tar ca-certificates \
   && ln -sf /apache-maven-3.3.3/bin/mvn /usr/bin/mvn \
   && mvn verify \
   && apk del tar \
+  && rm -rf /apache-maven-3.3.3-bin.tar.gz \
   && rm -rf /var/cache/apk/*
 
