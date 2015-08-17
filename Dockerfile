@@ -1,3 +1,12 @@
-FROM up-registry.ft.com/coco/javabase
+FROM frolvlad/alpine-oraclejdk8:slim
 ADD pom.xml /
-RUN mvn verify
+ADD http://git.svc.ft.com/projects/FP/repos/ft-toolbox/browse/files/settings.xml?at=ca798f77a173aa200ec7a5382a2126133c44d725&raw /root/.m2/settings.xml
+RUN apk --update add tar ca-certificates \
+  && wget http://www.webhostingjams.com/mirror/apache/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz \
+  && tar xf apache-maven-3.3.3-bin.tar.gz \
+  && ln -sf /apache-maven-3.3.3/bin/mvn /usr/bin/mvn \
+  && mvn verify \
+  && apk del tar \
+  && rm -rf /apache-maven-3.3.3-bin.tar.gz \
+  && rm -rf /var/cache/apk/*
+
