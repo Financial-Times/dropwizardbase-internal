@@ -16,7 +16,6 @@
         <dw.raven.version>0.1.1</dw.raven.version>
         <raven.logback.version>4.1.2</raven.logback.version>
         <raven.version>4.1.2</raven.version>
-        <advanced-dropwizard-healthcheck.version>2.6</advanced-dropwizard-healthcheck.version>
         <jaxrs-build-info-resource.version>1.1</jaxrs-build-info-resource.version>
         <junit.version>4.11</junit.version>
         <mockito-core.version>1.9.5</mockito-core.version>
@@ -65,11 +64,6 @@
             <artifactId>raven</artifactId>
             <version>${raven.version}</version>
             <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.ft</groupId>
-            <artifactId>advanced-dropwizard-healthcheck</artifactId>
-            <version>${advanced-dropwizard-healthcheck.version}</version>
         </dependency>
         <dependency>
             <groupId>com.ft</groupId>
