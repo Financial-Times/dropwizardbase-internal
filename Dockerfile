@@ -1,7 +1,7 @@
-FROM alpine:3.2
+FROM alpine:3.4
 ADD pom.xml /
-RUN echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
-  && apk --update add tar ca-certificates openjdk8@testing \
+RUN apk update \
+  && apk add tar ca-certificates openjdk8-jre \
   && wget http://www.webhostingjams.com/mirror/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz \
   && tar xf apache-maven-3.3.9-bin.tar.gz \
   && ln -sf /apache-maven-3.3.9/bin/mvn /usr/bin/mvn \
