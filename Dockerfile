@@ -1,5 +1,6 @@
 FROM alpine:3.4
 ADD pom.xml /
+ADD settings.xml /root/.m2/
 RUN apk update \
   && apk add tar ca-certificates openjdk8 \
   && wget http://www.webhostingjams.com/mirror/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz \
@@ -10,4 +11,3 @@ RUN apk update \
   && apk del tar \
   && rm -rf /apache-maven-3.3.9-bin.tar.gz \
   && rm -rf /var/cache/apk/*
-
